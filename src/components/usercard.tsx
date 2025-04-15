@@ -10,11 +10,12 @@ interface User {
 }
 
 const UserCard = ({ user }: { user: User }) => {
+  
   return (
     <div className="m-[2px] border-2 border-solid border-gray-50 shadow-md rounded-[8px] p-4">
       <div className="flex flex-col items-center justify-between">
         {/* User Initial in Circle */}
-        <div className="w-16 h-16 rounded-full bg-[#3251D0] text-white flex items-center justify-center text-2xl font-semibold">
+        <div className="w-16 h-16 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-2xl font-semibold">
           {user.initial}
         </div>
 
@@ -28,7 +29,7 @@ const UserCard = ({ user }: { user: User }) => {
 
         {/* Buttons */}
         <div className="mt-4 flex justify-end space-x-2 w-full ">
-          <button className="bg-[#3251D0] text-white rounded px-4 py-1  text-sm hover:bg-blue-800 transition-all cursor-pointer">
+          <button className="bg-[var(--color-primary)] text-white rounded px-4 py-1  text-sm hover:bg-blue-800 transition-all cursor-pointer">
             Edit
           </button>
           <button className="bg-red-500 text-white rounded px-4 py-1  text-sm hover:bg-red-600 transition-all cursor-pointer">
@@ -122,8 +123,9 @@ const UserCardGrid = () => {
       status: "Active",
       dob: "1996-12-03",
     },
+   
   ];
-
+  
   return (
     <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
       {users.map((user, index) => (

@@ -1,9 +1,9 @@
 export default function Navbar() {
   return (
-    <nav className="bg-[#3251D0] flex items-center justify-between px-6 py-4 shadow">
+    <nav className="bg-[var(--color-primary)] flex items-center justify-between px-6 py-4 shadow">
       <h1 className="text-white text-2xl font-bold">User Management</h1>
       <div className="flex items-center gap-4 rounded-lg">
-        <button className="bg-white text-[#3251D0] px-4 py-1 cursor-pointer rounded hover:bg-gray-100 font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+        <button className="bg-white text px-4 py-1 cursor-pointer rounded hover:bg-gray-100 font-semibold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
           Create User
         </button>
 
@@ -31,3 +31,4 @@ export default function Navbar() {
     </nav>
   );
 }
+
