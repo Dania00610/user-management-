@@ -1,15 +1,13 @@
-import { useSessionStore } from "../store/sesssionstore"; 
+import { useSessionStore } from "../store/sesssionstore";
 import { Navigate } from "react-router-dom";
 
 const AuthenticationRoute = ({ children }: { children: React.ReactNode }) => {
-  const accessToken = useSessionStore((state) => state.accessToken); 
-  if (accessToken) {
-    return <Navigate to="/dashboard" replace />; 
+  const isLoggedIn = useSessionStore((state) => Boolean(state.accessToken));
+  if (isLoggedIn) {
+    return <Navigate to="/dashboard" replace />;
   }
 
-  return <>{children}</>; 
+  return children;
 };
 
 export default AuthenticationRoute;
-
-

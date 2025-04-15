@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo } from "react";
+import { lazy, Suspense, useEffect, useMemo } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -7,11 +7,13 @@ import {
 } from "react-router";
 import AuthenticationRoute from "./AuthenticationRoute";
 import ProtectedRoute from "./protectedRoute";
+import { useThemeStore } from "../store/themeStore";
 
 const Login = lazy(() => import("../pages/login"));
 const Dashboard = lazy(() => import("../pages/dashboard"));
 
 export const Routes = () => {
+  const darkMode = useThemeStore((s) => s.darkMode);
   const router = useMemo(() => {
     return createBrowserRouter(
       createRoutesFromElements(
@@ -37,6 +39,11 @@ export const Routes = () => {
       )
     );
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+    document.body.setAttribute("data-theme", darkMode ? "dark" : "light");
+  }, [darkMode]);
 
   return (
     <Suspense>

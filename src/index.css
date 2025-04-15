@@ -1,7 +1,17 @@
 @import "tailwindcss";
-:root {
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
     --color-primary: #3251D0;
     --color-primary-dark: #263D9C;
   }
+
+
   
-  
+body.dark{
+  @apply bg-gray-800
+}
+
+.info{
+  @apply text-sm text-gray-600 dark:text-white;
+}
