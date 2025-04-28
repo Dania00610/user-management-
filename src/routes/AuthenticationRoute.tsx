@@ -1,5 +1,5 @@
-import { useSessionStore } from "../store/sesssionstore";
-import { Navigate } from "react-router-dom";
+import { useSessionStore } from "../store/sesssionStore";
+import { Navigate } from "react-router";
 
 const AuthenticationRoute = ({ children }: { children: React.ReactNode }) => {
   const isLoggedIn = useSessionStore((state) => Boolean(state.accessToken));
